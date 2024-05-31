@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+    <form action="/insert" method="POST">
+        <button type="submit">Add</button>
+    </form>
+    <h1>Customer List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Display Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>More Info</th>
+                <th>Contract Date</th>
+                <th> Chỉnh sửa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% customers.forEach(customer=> { %>
+                <tr>
+                    <td>
+                        <%= customer.Id %>
+                    </td>
+                    <td>
+                        <%= customer.DisplayName %>
+                    </td>
+                    <td>
+                        <%= customer.Address %>
+                    </td>
+                    <td>
+                        <%= customer.Phone %>
+                    </td>
+                    <td>
+                        <%= customer.Email %>
+                    </td>
+                    <td>
+                        <%= customer.MoreInfo %>
+                    </td>
+                    <td>
+                        <%= customer.ContractDate %>
+                    </td>
+                    <td>
+                        <form action="/delete/<%=customer.Id%>" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+</body>
+
+</html>
